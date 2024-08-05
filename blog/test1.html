@@ -130,23 +130,11 @@
 <h2 id="title">TITLE</h2>
 <p><br /></p>
     
-<div class="banner"><div class="frame">
-
-    <div class="profile-img img-responsive" src="/assets/img/prof_pic.jpg">
-            <!-- <div class="text">
-                            </div> -->
-    		<div class="fz30">含有链接的图片</div>
-    		<span></span>
-            <a  href="https://www.google.com" target="_blank"  class="a1"></a>
-
-        </div><div class="profile-img img-responsive" src="/assets/img/prof_pic.jpg">
-            <!-- <div class="text">
-                            </div> -->
-    		<div class="fz30">纯图片</div>
-    		<span></span>
-            <a  style="cursor:default" class="a1"></a>
-
-        </div></div>
+<div>
+     <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
+     <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
+     <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
+ </div>
   
 <p>INFORMATION OF THE PICTURE.</p>
 <p><br /></p>
@@ -267,6 +255,52 @@
     })
   </script>
 
+ <!-- 滚动图片 -->
+<style type="text/css">
+ *{
+ margin: 0px;
+ padding: 0px;
+ }
+div{
+            overflow: hidden;
+           width: 1500px;
+             height: 400px;
+            margin: auto;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+           right: 0px;
+            bottom: 0px;
+        }
+         img{
+            width: 100%;
+            height: 100%;
+          position: absolute;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+           animation-duration: 15s;
+       }
+         .c1{
+            animation-name: roll1;
+         }
+        .c2{
+            animation-name: roll2;
+        }
+        @keyframes roll1{
+   0%{left: 0px; top: 0px;}
+ 100%{left: 100%; top: 0px;}
+}
+ @keyframes roll2{
+0%{left: -100%; top: 0px;}
+100%{left: 0px; top: 0px;}
+ }
+ </style>
+
+
+
+
+
+  
   <!-- Google Analytics -->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
