@@ -1,14 +1,23 @@
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>无缝轮播</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
 
- <style>
       #wrap {
         overflow: hidden;
         position: relative;
-        width: 766px;
-        height: 430.88px;
-        margin: 100px auto 0;
+        width: 1226px;
+        height: 580px;
+        margin: 200px auto 0;
       }
 
       #wrap .img-list {
@@ -30,14 +39,14 @@
         top: 50%;
         transform: translate(0, -50%);
         display: block;
-        width: 30px;
-        height: 45px;
+        width: 40px;
+        height: 70px;
         background-color: rgba(0, 0, 0, 0.7);
         color: white;
         user-select: none;
-        font-size: 15px;
+        font-size: 30px;
         text-align: center;
-        line-height: 45px;
+        line-height: 70px;
         text-decoration: none;
       }
 
@@ -71,29 +80,19 @@
         background-color: #e74c3c;
       }
     </style>
-
-	
-<h2 id="title">TITLE0</h2>
-
-<p><br /></p>
-
-<div id="wrap">
+  </head>
+  <body>
+    <div id="wrap">
+      <!-- 图片列表 -->
       <div class="img-list">
-	<img class="profile-img img-responsive" src="/assets/img/2015.PNG" />
-	<img class="profile-img img-responsive" src="/assets/img/2016.PNG" />
-	<img class="profile-img img-responsive" src="/assets/img/2017.PNG" />
-</div>
+        <img src="https://s1.ax1x.com/2020/09/26/0irm1P.jpg" />
+        <img src="https://s1.ax1x.com/2020/09/26/0irQ0g.jpg" />
+        <img src="https://s1.ax1x.com/2020/09/26/0ir8ts.jpg" />
+        <img src="https://s1.ax1x.com/2020/10/11/0gbKoV.jpg" />
+        <img src="https://s1.ax1x.com/2020/10/11/0gb7Os.jpg" />
+      </div>
 
-    
-<p>INFORMATION OF THE PICTURE.</p>
-
-<p><br /></p>
-
-<p>DISCRIBE THE PICTURE.</p>
-    
-<p><br /></p>
-
- <!-- 小箭头 -->
+      <!-- 小箭头 -->
       <div class="arrow">
         <a href="javascript:;" class="left"><</a>
         <a href="javascript:;" class="right">></a>
@@ -104,33 +103,38 @@
         <li class="circle active" data-n="0"></li>
         <li class="circle" data-n="1"></li>
         <li class="circle" data-n="2"></li>
-
+        <li class="circle" data-n="3"></li>
+        <li class="circle" data-n="4"></li>
       </ul>
     </div>
-
-	
     <script>
-      
-	    
+      // 获取左右按钮和图片列表
       let oLeft = document.querySelector(".left");
       let oRight = document.querySelector(".right");
       let oImgList = document.querySelector(".img-list");
 
+      // 克隆第一张图片
       let clonefirstImg = oImgList.firstElementChild.cloneNode();
+      // 将第一张图片添加至图片列表的末尾
       oImgList.appendChild(clonefirstImg);
-	    
+
+      // 图片索引 代表当前是第几张图片  index:0代表第一张图片
       let index = 0;
+
+      // 设置函数节流锁
       let lock = true;
       function handleRightBtn() {
         if (!lock) return;
         index++;
-        oImgList.style.left = index * -766 + "px";
+        oImgList.style.left = index * -1226 + "px";
+        // 为什么要加过渡? 因为切换到了最后一张假图时会将过渡去掉
         oImgList.style.transition = "0.5s ease";
 
-        if (index === 3) {
+        if (index === 5) {
           index = 0;
           setTimeout(() => {
             oImgList.style.left = 0;
+            // 取消过渡 500毫秒之后切换第一张
             oImgList.style.transition = "none";
           }, 500);
         }
@@ -152,15 +156,15 @@
         if (!lock) return;
         index--;
         if (index === -1) {
-          oImgList.style.left = 3 * -766 + "px";
+          oImgList.style.left = 5 * -1226 + "px";
           oImgList.style.transition = "none";
-          index = 2;
+          index = 4;
           setTimeout(() => {
-            oImgList.style.left = index * -766 + "px";
+            oImgList.style.left = index * -1226 + "px";
             oImgList.style.transition = "0.5s ease";
           }, 0);
         } else {
-          oImgList.style.left = index * -766 + "px";
+          oImgList.style.left = index * -1226 + "px";
         }
 
         // 设置小圆点的高亮
@@ -196,7 +200,7 @@
           index = n;
           setCircles();
           oImgList.style.transition = "0.5s ease";
-          oImgList.style.left = index * -766 + "px";
+          oImgList.style.left = index * -1226 + "px";
         }
       });
 
@@ -214,47 +218,7 @@
         autoplay = setInterval(handleRightBtn, 2000);
       });
 
+      // https://segmentfault.com/a/1190000018445196
     </script>
-
-<style type="text/css">
-          *{
-              margin: 0px;
-              padding: 0px;
-       }
-         div{
-             overflow: hidden;
-              width: 766px;
-              height: 430.88px;
-             margin: auto;
-             position: absolute;
-             top: 0px;
-             left: 0px;
-             right: 0px;
-             bottom: 0px;
-         }
-         img{
-             width: 100%;
-             height: 100%;
-             position: absolute;
-             animation-iteration-count: infinite;
-             animation-timing-function: linear;
-             animation-duration: 15s;
-         }
-         .c1{
-             animation-name: roll1;
-         }
-         .c2{
-             animation-name: roll2;
-         }
-         @keyframes roll1{
-             0%{left: 0px; top: 0px;}
-             100%{left: 100%; top: 0px;}
-         }
-         @keyframes roll2{
-             0%{left: -100%; top: 0px;}
-             100%{left: 0px; top: 0px;}
-         }
-         </style>
   </body>
 </html>
-
