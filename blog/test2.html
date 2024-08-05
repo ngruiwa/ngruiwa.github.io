@@ -17,74 +17,6 @@
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="canonical" href="/publications/">
 </head>
-<body>
-  <!-- Header -->
-  <nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
-    <div class="container-fluid p-0">
-      
-        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Rui</span> Wang</a>
-      
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse text-right" id="navbarNav">
-        <ul class="navbar-nav ml-auto flex-nowrap">
-          <li class="nav-item ">
-            <a class="nav-link" href="/">
-              about
-              
-            </a>
-          </li>
-          
-            
-              <li class="nav-item ">
-                  <a class="nav-link" href="/cv/">
-                    curriculum vitae
-                    
-                  </a>
-              </li>
-            
-                 
-              <li class="nav-item navbar-active font-weight-bold">
-                  <a class="nav-link" href="/publications/">
-                    publications
-                    
-                      <span class="sr-only">(current)</span>
-                    
-                  </a>
-              </li>
-            
-          
-<!-- 注释            
-              <li class="nav-item ">
-                  <a class="nav-link" href="/projects/">
-                    projects
-                    
-                  </a>
-              </li>
-            
-            
-              <li class="nav-item ">
-                  <a class="nav-link" href="/teaching/">
-                    teaching
-                    
-                  </a>
-              </li>
--->            
-          
-            
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Scrolling Progress Bar -->
-  <progress id="progress" value="0">
-    <div class="progress-container">
-      <span class="progress-bar"></span>
-    </div>
-  </progress>
 
 <!-- Cyclic Images Content -->
  <style>
@@ -192,34 +124,30 @@
 
       </ul>
     </div>
+
+	
     <script>
-      // 获取左右按钮和图片列表
+      
+	    
       let oLeft = document.querySelector(".left");
       let oRight = document.querySelector(".right");
       let oImgList = document.querySelector(".img-list");
 
-      // 克隆第一张图片
       let clonefirstImg = oImgList.firstElementChild.cloneNode();
-      // 将第一张图片添加至图片列表的末尾
       oImgList.appendChild(clonefirstImg);
-
-      // 图片索引 代表当前是第几张图片  index:0代表第一张图片
+	    
       let index = 0;
-
-      // 设置函数节流锁
       let lock = true;
       function handleRightBtn() {
         if (!lock) return;
         index++;
         oImgList.style.left = index * -766 + "px";
-        // 为什么要加过渡? 因为切换到了最后一张假图时会将过渡去掉
         oImgList.style.transition = "0.5s ease";
 
         if (index === 3) {
           index = 0;
           setTimeout(() => {
             oImgList.style.left = 0;
-            // 取消过渡 500毫秒之后切换第一张
             oImgList.style.transition = "none";
           }, 500);
         }
