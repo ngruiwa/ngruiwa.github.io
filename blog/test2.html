@@ -86,7 +86,7 @@
     </div>
   </progress>
 
-  <!-- Content
+  <!-- Content -->
     
     <style>
       * {
@@ -100,8 +100,8 @@
       #wrap {
         overflow: hidden;
         position: relative;
-        width: 1226px;
-        height: 580px;
+        width: 766px;
+        height: 430.88px;
         margin: 200px auto 0;
       }
 
@@ -168,7 +168,7 @@
   </head>
   <body>
     <div id="wrap">
-   -->
+ 
       <!-- 图片列表 -->
 <h2 id="title">TITLE</h2>
 
@@ -224,7 +224,7 @@
       function handleRightBtn() {
         if (!lock) return;
         index++;
-        oImgList.style.left = index * -1226 + "px";
+        oImgList.style.left = index * -766 + "px";
         oImgList.style.transition = "0.5s ease";
         if (index === 4) {
           index = 0;
@@ -246,15 +246,15 @@
         if (!lock) return;
         index--;
         if (index === -1) {
-          oImgList.style.left = 4 * -1226 + "px";
+          oImgList.style.left = 4 * -766 + "px";
           oImgList.style.transition = "none";
           index = 3;
           setTimeout(() => {
-            oImgList.style.left = index * -1226 + "px";
+            oImgList.style.left = index * -766 + "px";
             oImgList.style.transition = "0.5s ease";
           }, 0);
         } else {
-          oImgList.style.left = index * -1226 + "px";
+          oImgList.style.left = index * -766 + "px";
         }
 
         setCircles();
@@ -282,18 +282,18 @@
           index = n;
           setCircles();
           oImgList.style.transition = "0.5s ease";
-          oImgList.style.left = index * -1226 + "px";
+          oImgList.style.left = index * -766 + "px";
         }
       });
 
-      let autoplay = setInterval(handleRightBtn, 500);
+      let autoplay = setInterval(handleRightBtn, 1000);
       const oWrap = document.getElementById("wrap");
       oWrap.addEventListener("mouseenter", () => {
         clearInterval(autoplay);
       });
       oWrap.addEventListener("mouseleave", () => {
         clearInterval(autoplay);
-        autoplay = setInterval(handleRightBtn, 500);
+        autoplay = setInterval(handleRightBtn, 1000);
       });
       
     </script>
