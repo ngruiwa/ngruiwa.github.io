@@ -1,8 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>无缝轮播</title>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="/assets/img/html_icon.svg">
+  
+  <title>Rui Wang | publications</title>
+  <meta name="description" content="Welcome to the personal website of Rui Wang">
+
+  <!-- Fonts and Icons -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="/assets/css/all.min.css">
+  <link rel="stylesheet" href="/assets/css/academicons.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/publications/">
+</head>
+<body>
+  <!-- Header -->
+  <nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
+    <div class="container-fluid p-0">
+      
+        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Rui</span> Wang</a>
+      
+      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item ">
+            <a class="nav-link" href="/">
+              about
+              
+            </a>
+          </li>
+          
+            
+              <li class="nav-item ">
+                  <a class="nav-link" href="/cv/">
+                    curriculum vitae
+                    
+                  </a>
+              </li>
+            
+                 
+              <li class="nav-item navbar-active font-weight-bold">
+                  <a class="nav-link" href="/publications/">
+                    publications
+                    
+                      <span class="sr-only">(current)</span>
+                    
+                  </a>
+              </li>
+            
+          
+<!-- 注释            
+              <li class="nav-item ">
+                  <a class="nav-link" href="/projects/">
+                    projects
+                    
+                  </a>
+              </li>
+            
+            
+              <li class="nav-item ">
+                  <a class="nav-link" href="/teaching/">
+                    teaching
+                    
+                  </a>
+              </li>
+-->            
+          
+            
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Scrolling Progress Bar -->
+  <progress id="progress" value="0">
+    <div class="progress-container">
+      <span class="progress-bar"></span>
+    </div>
+  </progress>
+
+  <!-- Content -->
+    
     <style>
       * {
         margin: 0;
@@ -203,7 +288,7 @@
       });
 
       // 自动轮播
-      let autoplay = setInterval(handleRightBtn, 2000);
+      let autoplay = setInterval(handleRightBtn, 500);
       const oWrap = document.getElementById("wrap");
       // 移入停止轮播
       oWrap.addEventListener("mouseenter", () => {
@@ -213,10 +298,9 @@
       oWrap.addEventListener("mouseleave", () => {
         // 设表先关
         clearInterval(autoplay);
-        autoplay = setInterval(handleRightBtn, 2000);
+        autoplay = setInterval(handleRightBtn, 500);
       });
-
-      // https://segmentfault.com/a/1190000018445196
+      
     </script>
   </body>
 </html>
