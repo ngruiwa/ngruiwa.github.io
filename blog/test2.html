@@ -172,7 +172,6 @@
         <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
         <img class="profile-img img-responsive" src="/assets/img/2016.PNG" />
         <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
-        <img class="profile-img img-responsive" src="/assets/img/2017.PNG" />
       </div>
     
       <div class="arrow">
@@ -185,7 +184,6 @@
         <li class="circle" data-n="1"></li>
         <li class="circle" data-n="2"></li>
         <li class="circle" data-n="3"></li>
-        <li class="circle" data-n="4"></li>
       </ul>
   </div> 
 
@@ -329,7 +327,7 @@
         oImgList.style.left = index * -766 + "px";
         oImgList.style.transition = "0.5s ease";
 
-        if (index === 5) {
+        if (index === 4) {
           index = 0;
           setTimeout(() => {
             oImgList.style.left = 0;
@@ -352,9 +350,9 @@
         if (!lock) return;
         index--;
         if (index === -1) {
-          oImgList.style.left = 5 * -766 + "px";
+          oImgList.style.left = 4 * -766 + "px";
           oImgList.style.transition = "none";
-          index = 4;
+          index = 3;
           setTimeout(() => {
             oImgList.style.left = index * -766 + "px";
             oImgList.style.transition = "0.5s ease";
