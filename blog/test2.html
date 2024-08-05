@@ -115,14 +115,14 @@
         top: 50%;
         transform: translate(0, -50%);
         display: block;
-        width: 80px;
-        height: 140px;
+        width: 30px;
+        height: 90px;
         background-color: rgba(0, 0, 0, 0.7);
         color: white;
         user-select: none;
-        font-size: 60px;
+        font-size: 15px;
         text-align: center;
-        line-height: 140px;
+        line-height: 90px;
         text-decoration: none;
       }
 
@@ -137,7 +137,7 @@
       .circle-list {
         display: flex;
         position: absolute;
-        bottom: 10px;
+        bottom: 20px;
         left: 50%;
         transform: translate(-50%, 0);
         width: 240px;
@@ -146,8 +146,8 @@
       }
       .circle-list > .circle {
         margin: 0 5px;
-        width: 15px;
-        height: 15px;
+        width: 30px;
+        height: 30px;
         background-color: #ecf0f1;
         border-radius: 50%;
       }
@@ -165,7 +165,6 @@
 <div id="wrap">
       <div class="img-list">
 	<img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
-        <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
         <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
         <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
         <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
@@ -192,7 +191,6 @@
         <li class="circle" data-n="1"></li>
         <li class="circle" data-n="2"></li>
         <li class="circle" data-n="3"></li>
-        <li class="circle" data-n="4"></li>
       </ul>
     </div>
     <script>
@@ -214,7 +212,7 @@
       function handleRightBtn() {
         if (!lock) return;
         index++;
-        oImgList.style.left = index * -1226 + "px";
+        oImgList.style.left = index * -766 + "px";
         // 为什么要加过渡? 因为切换到了最后一张假图时会将过渡去掉
         oImgList.style.transition = "0.5s ease";
 
@@ -244,9 +242,9 @@
         if (!lock) return;
         index--;
         if (index === -1) {
-          oImgList.style.left = 5 * -766 + "px";
+          oImgList.style.left = 4 * -766 + "px";
           oImgList.style.transition = "none";
-          index = 4;
+          index = 3;
           setTimeout(() => {
             oImgList.style.left = index * -766 + "px";
             oImgList.style.transition = "0.5s ease";
