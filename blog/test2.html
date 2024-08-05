@@ -15,8 +15,8 @@
       #wrap {
         overflow: hidden;
         position: relative;
-        width: 1226px;
-        height: 580px;
+        width: 766px;
+        height: 430.88px;
         margin: 200px auto 0;
       }
 
@@ -126,7 +126,7 @@
       function handleRightBtn() {
         if (!lock) return;
         index++;
-        oImgList.style.left = index * -1226 + "px";
+        oImgList.style.left = index * -766 + "px";
         // 为什么要加过渡? 因为切换到了最后一张假图时会将过渡去掉
         oImgList.style.transition = "0.5s ease";
 
@@ -156,15 +156,15 @@
         if (!lock) return;
         index--;
         if (index === -1) {
-          oImgList.style.left = 5 * -1226 + "px";
+          oImgList.style.left = 5 * -766 + "px";
           oImgList.style.transition = "none";
           index = 4;
           setTimeout(() => {
-            oImgList.style.left = index * -1226 + "px";
+            oImgList.style.left = index * -766 + "px";
             oImgList.style.transition = "0.5s ease";
           }, 0);
         } else {
-          oImgList.style.left = index * -1226 + "px";
+          oImgList.style.left = index * -766 + "px";
         }
 
         // 设置小圆点的高亮
@@ -200,7 +200,7 @@
           index = n;
           setCircles();
           oImgList.style.transition = "0.5s ease";
-          oImgList.style.left = index * -1226 + "px";
+          oImgList.style.left = index * -766 + "px";
         }
       });
 
@@ -218,7 +218,6 @@
         autoplay = setInterval(handleRightBtn, 2000);
       });
 
-      // https://segmentfault.com/a/1190000018445196
     </script>
   </body>
 </html>
