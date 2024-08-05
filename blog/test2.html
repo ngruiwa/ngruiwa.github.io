@@ -88,98 +88,13 @@
   </progress>
 
 <!-- Cyclic Images Content -->
- <!-- Cyclic Images -->
-  <style type="text/css">
-			* {
-				box-sizing: border-box;
-				margin: 0;
-				padding: 0;
-			}
-
-			#box {
-				width: 766px;
-				height: 430.88px;
-				overflow: hidden;
-				position: relative;
-			}
-
-			#lunboimg {
-				width: 766px;
-				height: 430.88px;
-				position: absolute;
-				display: flex;
-			}
-
-			a {
-				height: 766px;
-				width: 430.88px;
-			}
-
-			img {
-				width: 766px;
-				height: 430.88px;
-				margin: 0;
-			}
-
-			#box:hover #selector {
-				display: flex;
-			}
-
-			#selector {
-				width: 80px;
-				height: 20px;
-				position: absolute;
-				bottom: 0;
-				left: 60px;
-				display: none;
-				justify-content: space-between;
-				z-index: 100;
-			}
-
-			#selector>span {
-				width: 15px;
-				height: 15px;
-				border-radius: 50%;
-				background-color: lightsalmon;
-				opacity: 0.8;
-				margin-right: 5px;
-				cursor: pointer;
-			}
-
-			#selector>span:hover {
-				background-color: #8A8A8A;
-			}
-			#left,#right{
-				width: 20px;
-				height: 20px;
-				position: absolute;
-				top: 90px;
-				background-color: lightsteelblue;
-				font-size: 18px;
-				border-radius: 50%;
-				text-align: center;
-				line-height: 100%;
-				cursor: pointer;
-				color: lightslategray;
-			}
-			#left{
-				left: 0;
-			}
-			#right{
-				right: 0;
-			}
-			#left:hover,#right:hover{
-				background-color: #8A8A8A;
-				color: #FFFFFF;
-			}
-		</style>
+ 
 	
 <h2 id="title">TITLE1</h2>
 
 <p><br /></p>
 
-<div id="box">
-<div id="lunboimg">
+<div>
 	<img src="/assets/img/prof_pic.jpg" />
         <img src="/assets/img/prof_pic.jpg" />
         <img src="/assets/img/prof_pic.jpg" />
@@ -187,18 +102,6 @@
         <img src="/assets/img/prof_pic.jpg" />
 </div>
 
-			<div id="selector">
-				<span id=""></span>
-				<span id=""></span>
-				<span id=""></span>
-				<span id=""></span>
-        <span id=""></span>
-			</div>
-        
-			<div id="left">&lt;</div>
-			<div id="right">&gt;</div>
-        
-		</div>
     
 <p>INFORMATION OF THE PICTURE.</p>
 
@@ -208,73 +111,6 @@
     
 <p><br /></p>
 
-
-
-<script type="text/javascript">
-			let img = document.querySelector('img');
-			let span = document.querySelectorAll('span');
-			let left = document.getElementById('left');
-			let right = document.getElementById('right');
-			let index = 0;
-			let timer;
-			function show(){
-				img.src = `img/${index}.jpg`;
-			}
-
-			function autoPlay() {
-				timer = setInterval(function() {
-					if (index == span.length) {
-						index = 0;
-					}
-					show();
-					index++;
-				}, 1000);
-			}
-			autoPlay();
-			
-			function ctrlPlay(){
-				for(let i = 0; i < span.length; i++){
-					span[i].onclick = function(){
-						index = i;
-						show();
-					}
-				}
-			}
-			ctrlPlay();
-			function clickPlay(){
-				left.onclick = function(){
-					if(index <= 0){
-						index = span.length - 1;
-					}else{
-						index --;
-					}
-					show();
-				}
-				right.onclick = function(){
-					if(index == span.length){
-						index = 0;
-					}
-					index ++;
-					show();
-				}
-			}
-			clickPlay();
-			function eventList(){
-				for(let i = 0; i < span.length; i++){
-					span[i].addEventListener('mouseenter',function(){
-						clearInterval(timer);
-						index = i;
-						show();
-					},false);
-					span[i].addEventListener('mousemove',function(){
-						clearInterval(timer);
-						autoPlay();
-					},false);
-					
-				}
-			}
-			eventList();
-		</script>
   
 </body> 
 
@@ -285,6 +121,47 @@
      
   </footer>
 
+
+<style type="text/css">
+          *{
+              margin: 0px;
+              padding: 0px;
+       }
+         div{
+             overflow: hidden;
+              width: 766px;
+              height: 430.88px;
+             margin: auto;
+             position: absolute;
+             top: 0px;
+             left: 0px;
+             right: 0px;
+             bottom: 0px;
+         }
+         img{
+             width: 100%;
+             height: 100%;
+             position: absolute;
+             animation-iteration-count: infinite;
+             animation-timing-function: linear;
+             animation-duration: 15s;
+         }
+         .c1{
+             animation-name: roll1;
+         }
+         .c2{
+             animation-name: roll2;
+         }
+         @keyframes roll1{
+             0%{left: 0px; top: 0px;}
+             100%{left: 100%; top: 0px;}
+         }
+         @keyframes roll2{
+             0%{left: -100%; top: 0px;}
+             100%{left: 0px; top: 0px;}
+         }
+         </style>
+	
 
 
   <!-- Core JavaScript Files -->
