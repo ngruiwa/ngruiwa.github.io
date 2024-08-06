@@ -1,415 +1,190 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" href="/assets/img/html_icon.svg">
-  
-  <title>Rui Wang | Blogs</title>
-  <meta name="description" content="Welcome to the personal website of Rui Wang">
-
-  <!-- Fonts and Icons -->
-  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons" />
-
-  <!-- CSS Files -->
-  <link rel="stylesheet" href="/assets/css/all.min.css">
-  <link rel="stylesheet" href="/assets/css/academicons.min.css">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="canonical" href="/publications/">
-  </head>
-  
-  <body> 
-  <!-- Header -->
-  <nav id="navbar" class="navbar fixed-top navbar-expand-md grey lighten-5 z-depth-1 navbar-light">
-    <div class="container-fluid p-0">
-      
-        <a class="navbar-brand title font-weight-lighter" href="/"><span class="font-weight-bold">Rui</span> Wang</a>
-      
-      <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse text-right" id="navbarNav">
-        <ul class="navbar-nav ml-auto flex-nowrap">
-          <li class="nav-item ">
-            <a class="nav-link" href="/">
-              about
-              
-            </a>
-          </li>
-          
-            
-              <li class="nav-item ">
-                  <a class="nav-link" href="/cv/">
-                    curriculum vitae
-                    
-                  </a>
-              </li>
-            
-                 
-              <li class="nav-item navbar-active font-weight-bold">
-                  <a class="nav-link" href="/publications/">
-                    publications
-                    
-                      <span class="sr-only">(current)</span>
-                    
-                  </a>
-              </li>
-            
-          
-<!-- 注释            
-              <li class="nav-item ">
-                  <a class="nav-link" href="/projects/">
-                    projects
-                    
-                  </a>
-              </li>
-            
-            
-              <li class="nav-item ">
-                  <a class="nav-link" href="/teaching/">
-                    teaching
-                    
-                  </a>
-              </li>
--->            
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Scrolling Progress Bar -->
-  <progress id="progress" value="0">
-    <div class="progress-container">
-      <span class="progress-bar"></span>
-    </div>
-  </progress>
-
-  <!-- Scrolling Pictures -->  
-  <!-- Picture Style  -->
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      ul {
-        list-style: none;
-      }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
 
-      #wrap {
-        overflow: hidden;
-        position: relative;
-        width: 766px;
-        height: 430.88px;
-        margin: 0px auto 0;
-      }
+        #wrap {
+            overflow: hidden;
+            position: relative;
+            width: 766px;
+            height: 430.88px;
+            margin: 0 auto;
+        }
 
-      #wrap .img-list {
-        display: flex;
-        position: relative;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        transition: 0.5s ease;
-      }
+        #wrap .img-list {
+            display: flex;
+            position: relative;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s ease;
+        }
 
-      #wrap .img-list img {
-        width: 100%;
-        cursor: pointer;
-      }
+        #wrap .img-list img {
+            width: 100%;
+            cursor: pointer;
+        }
 
-      #wrap a {
-        position: absolute;
-        top: 50%;
-        transform: translate(0, -50%);
-        display: block;
-        width: 40px;
-        height: 70px;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        user-select: none;
-        font-size: 30px;
-        text-align: center;
-        line-height: 70px;
-        text-decoration: none;
-      }
+        #wrap a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: block;
+            width: 40px;
+            height: 70px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            user-select: none;
+            font-size: 30px;
+            text-align: center;
+            line-height: 70px;
+            text-decoration: none;
+        }
 
-      #wrap a.left {
-        left: 0;
-      }
+        #wrap a.left {
+            left: 0;
+        }
 
-      #wrap a.right {
-        right: 0;
-      }
+        #wrap a.right {
+            right: 0;
+        }
 
-      .circle-list {
-        display: flex;
-        position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translate(-50%, 0);
-        width: 240px;
-        height: 40px;
-        z-index: 8;
-      }
-      .circle-list > .circle {
-        margin: 0 5px;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-      }
+        .circle-list {
+            display: flex;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 8;
+        }
 
-      .circle-list > .circle.active {
-       background-color: #e74c3c;
-      }
+        .circle-list > .circle {
+            margin: 0 5px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: gray;
+        }
+
+        .circle-list > .circle.active {
+            background-color: #e74c3c;
+        }
     </style>
- 
-    
-  <div id="wrap">
-      <div class="img-list">
-        <img class="profile-img img-responsive" src="/assets/img/2015.PNG" />
-        <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
-        <img class="profile-img img-responsive" src="/assets/img/2016.PNG" />
-        <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
-      </div>
-    
-      <div class="arrow">
+</head>
+<body>
+    <div id="wrap">
+        <div class="img-list">
+            <img class="profile-img img-responsive" src="/assets/img/2015.PNG" />
+            <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
+            <img class="profile-img img-responsive" src="/assets/img/2016.PNG" />
+            <img class="profile-img img-responsive" src="/assets/img/prof_pic.jpg" />
+        </div>
+
         <a href="javascript:;" class="left"><</a>
         <a href="javascript:;" class="right">></a>
-      </div>
 
-      <ul class="circle-list">
-        <li class="circle active" data-n="0"></li>
-        <li class="circle" data-n="1"></li>
-        <li class="circle" data-n="2"></li>
-        <li class="circle" data-n="3"></li>
-      </ul>
-  </div> 
+        <ul class="circle-list">
+            <li class="circle active" data-n="0"></li>
+            <li class="circle" data-n="1"></li>
+            <li class="circle" data-n="2"></li>
+            <li class="circle" data-n="3"></li>
+        </ul>
+    </div>
 
-    
-  <!-- Footer -->
-  <footer>
-    &copy; Copyright 2024 Rui Wang.
-
-  </footer>
-
-
-<!-- Core JavaScript Files -->
-  <script src="/assets/js/jquery.min.js" type="text/javascript"></script>
-  <script src="/assets/js/popper.min.js" type="text/javascript"></script>
-  <script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
-  <script src="/assets/js/mdb.min.js" type="text/javascript"></script>
-  <script async="" src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML"></script>
-  <script src="/assets/js/common.js"></script>
-
-  <!-- Scrolling Progress Bar -->
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var navbarHeight = $('#navbar').outerHeight(true);
-      $('body').css({ 'padding-top': navbarHeight });
-      $('progress-container').css({ 'padding-top': navbarHeight });
-      var progressBar = $('#progress');
-      progressBar.css({ 'top': navbarHeight });
-      var getMax = function() { return $(document).height() - $(window).height(); }
-      var getValue = function() { return $(window).scrollTop(); }   
-      // Check if the browser supports the progress element.
-      if ('max' in document.createElement('progress')) {
-        // Set the 'max' attribute for the first time.
-        progressBar.attr({ max: getMax() });
-        progressBar.attr({ value: getValue() });
-    
-        $(document).on('scroll', function() {
-          // On scroll only the 'value' attribute needs to be calculated.
-          progressBar.attr({ value: getValue() });
-        });
-
-        $(window).resize(function() {
-          var navbarHeight = $('#navbar').outerHeight(true);
-          $('body').css({ 'padding-top': navbarHeight });
-          $('progress-container').css({ 'padding-top': navbarHeight });
-          progressBar.css({ 'top': navbarHeight });
-          // On resize, both the 'max' and 'value' attributes need to be calculated.
-          progressBar.attr({ max: getMax(), value: getValue() });
-        });
-      } else {
-        var max = getMax(), value, width;
-        var getWidth = function() {
-          // Calculate the window width as a percentage.
-          value = getValue();
-          width = (value/max) * 100;
-          width = width + '%';
-          return width;
-        }
-        var setWidth = function() { progressBar.css({ width: getWidth() }); };
-        setWidth();
-        $(document).on('scroll', setWidth);
-        $(window).on('resize', function() {
-          // Need to reset the 'max' attribute.
-          max = getMax();
-          setWidth();
-        });
-      }
-    });
-  </script>
-
-  <!-- Code Syntax Highlighting -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
-  <script src="/assets/js/highlight.pack.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script>
-
-  <!-- Script Used for Randomizing the Projects Order -->
-  <!-- <script type="text/javascript">
-    $.fn.shuffleChildren = function() {
-      $.each(this.get(), function(index, el) {
-        var $el = $(el);
-        var $find = $el.children();
-
-        $find.sort(function() {
-          return 0.5 - Math.random();
-        });
-
-        $el.empty();
-        $find.appendTo($el);
-      });
-    };
-    $("#projects").shuffleChildren();
-  </script> -->
-
-  <!-- Project Cards Layout -->
-  <script type="text/javascript">
-    var $grid = $('#projects');
-
-    // $grid.masonry({ percentPosition: true });
-    // $grid.masonry('layout');
-
-    // Trigger after images load.
-    $grid.imagesLoaded().progress(function() {
-      $grid.masonry({ percentPosition: true });
-      $grid.masonry('layout');
-    });
-  </script>
-
-  <!-- Enable Tooltips -->
-  <script type="text/javascript">
-    $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
-    })
-  </script>
-
-  <!-- Google Analytics -->
-  <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', '', 'auto');
-    ga('send', 'pageview');
-  </script>
-
-    <!-- Picture Moving Files -->
     <script>
-      let oLeft = document.querySelector(".left");
-      let oRight = document.querySelector(".right");
-      let oImgList = document.querySelector(".img-list");
+        const oLeft = document.querySelector(".left");
+        const oRight = document.querySelector(".right");
+        const oImgList = document.querySelector(".img-list");
 
-      let clonefirstImg = oImgList.firstElementChild.cloneNode();
-      oImgList.appendChild(clonefirstImg);
+        const cloneFirstImg = oImgList.firstElementChild.cloneNode();
+        oImgList.appendChild(cloneFirstImg);
 
-      let index = 0;
+        let index = 0;
+        let lock = true;
 
-      let lock = true;
-      function handleRightBtn() {
-        if (!lock) return;
-        index++;
-        oImgList.style.left = index * -766 + "px";
-        oImgList.style.transition = "0.5s ease";
-
-        if (index === 4) {
-          index = 0;
-          setTimeout(() => {
-            oImgList.style.left = 0;
-            oImgList.style.transition = "none";
-          }, 500);
-        }
-
-
-        setCircles();
-        lock = false;
-        setTimeout(() => {
-          lock = true;
-        }, 500);
-      }
-
-
-      oRight.addEventListener("click", handleRightBtn);
-
-      oLeft.addEventListener("click", () => {
-        if (!lock) return;
-        index--;
-        if (index === -1) {
-          oImgList.style.left = 4 * -766 + "px";
-          oImgList.style.transition = "none";
-          index = 3;
-          setTimeout(() => {
+        function handleRightBtn() {
+            if (!lock) return;
+            index++;
             oImgList.style.left = index * -766 + "px";
             oImgList.style.transition = "0.5s ease";
-          }, 0);
-        } else {
-          oImgList.style.left = index * -766 + "px";
+
+            if (index === 4) {
+                index = 0;
+                setTimeout(() => {
+                    oImgList.style.left = 0;
+                    oImgList.style.transition = "none";
+                }, 500);
+            }
+
+            setCircles();
+            lock = false;
+            setTimeout(() => {
+                lock = true;
+            }, 500);
         }
 
+        oRight.addEventListener("click", handleRightBtn);
 
-        setCircles();
+        oLeft.addEventListener("click", () => {
+            if (!lock) return;
+            index--;
+            if (index === -1) {
+                oImgList.style.left = 4 * -766 + "px";
+                oImgList.style.transition = "none";
+                index = 3;
+                setTimeout(() => {
+                    oImgList.style.left = index * -766 + "px";
+                    oImgList.style.transition = "0.5s ease";
+                }, 0);
+            } else {
+                oImgList.style.left = index * -766 + "px";
+                oImgList.style.transition = "0.5s ease";
+            }
 
-        lock = false;
-        setTimeout(() => {
-          lock = true;
-        }, 500);
-      });
+            setCircles();
+            lock = false;
+            setTimeout(() => {
+                lock = true;
+            }, 500);
+        });
 
-      const circles = document.querySelectorAll(".circle");
+        const circles = document.querySelectorAll(".circle");
 
-      function setCircles() {
-        for (let i = 0; i < circles.length; i++) {
-          if (i === index) {
-            circles[i].classList.add("active");
-          } else {
-            circles[i].classList.remove("active");
-          }
+        function setCircles() {
+            circles.forEach((circle, i) => {
+                circle.classList.toggle("active", i === index);
+            });
         }
-      }
 
+        const oCircle = document.querySelector(".circle-list");
+        oCircle.addEventListener("click", (e) => {
+            if (e.target.classList.contains("circle")) {
+                index = Number(e.target.getAttribute("data-n"));
+                setCircles();
+                oImgList.style.transition = "0.5s ease";
+                oImgList.style.left = index * -766 + "px";
+            }
+        });
 
-      const oCircle = document.querySelector(".circle-list");
-      oCircle.addEventListener("click", (e) => {
+        let autoplay = setInterval(handleRightBtn, 2000);
+        const oWrap = document.getElementById("wrap");
 
-        if (e.target.nodeName.toLowerCase() === "li") {
-          const n = Number(e.target.getAttribute("data-n"));
-          index = n;
-          setCircles();
-          oImgList.style.transition = "0.5s ease";
-          oImgList.style.left = index * -766 + "px";
-        }
-      });
+        oWrap.addEventListener("mouseenter", () => {
+            clearInterval(autoplay);
+        });
 
-
-      let autoplay = setInterval(handleRightBtn, 2000);
-      const oWrap = document.getElementById("wrap");
-      
-      oWrap.addEventListener("mouseenter", () => {
-        clearInterval(autoplay);
-      });
-
-      oWrap.addEventListener("mouseleave", () => {
-        clearInterval(autoplay);
-        autoplay = setInterval(handleRightBtn, 2000);
-      });
-
-
-      
+        oWrap.addEventListener("mouseleave", () => {
+            autoplay = setInterval(handleRightBtn, 2000);
+        });
     </script>
-  </body>
+</body>
 </html>
