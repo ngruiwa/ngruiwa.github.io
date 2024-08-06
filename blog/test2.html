@@ -7,171 +7,144 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        ul {
-            list-style: none;
+        body {
+            font-family: Arial, sans-serif;
         }
-
-        .img-list {
+        .carousel {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .carousel-images {
             display: flex;
-            transition: 0.5s ease;
+            transition: transform 0.5s ease;
         }
-
-        .img-list img {
+        .carousel-images img {
             width: 100%;
+            flex-shrink: 0;
+        }
+        .carousel-description {
+            text-align: center;
+            padding: 10px;
+            background-color: #f0f0f0;
+        }
+        .carousel-title {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .carousel-text-content {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-controls a {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-decoration: none;
             cursor: pointer;
         }
-
-        .arrow a {
-            display: inline-block;
-            width: 40px;
-            height: 70px;
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            user-select: none;
-            font-size: 30px;
+        .carousel-indicators {
             text-align: center;
-            line-height: 70px;
-            text-decoration: none;
+            margin: 10px 0;
         }
-
-        .circle-list {
-            display: flex;
-        }
-
-        .circle-list > .circle {
-            margin: 0 5px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+        .carousel-indicators span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
             background-color: gray;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
         }
-
-        .circle-list > .circle.active {
+        .carousel-indicators span.active {
             background-color: #e74c3c;
         }
     </style>
 </head>
 <body>
-    <div>
-        <div class="title">图片合集标题</div>
-        <div class="img-list">
+    <div class="carousel">
+        <div class="carousel-title">图片合集标题</div>
+        <div class="carousel-images">
             <div>
-                <img src="/assets/img/2015.PNG" />
-                <div>描述1</div>
+                <img src="https://via.placeholder.com/800x400?text=Image+1" alt="Image 1">
+                <div class="carousel-description">描述1</div>
             </div>
             <div>
-                <img src="/assets/img/prof_pic.jpg" />
-                <div>描述2</div>
+                <img src="https://via.placeholder.com/800x400?text=Image+2" alt="Image 2">
+                <div class="carousel-description">描述2</div>
             </div>
             <div>
-                <img src="/assets/img/2016.PNG" />
-                <div>描述3</div>
-            </div>
-            <div>
-                <img src="/assets/img/prof_pic.jpg" />
-                <div>描述4</div>
+                <img src="https://via.placeholder.com/800x400?text=Image+3" alt="Image 3">
+                <div class="carousel-description">描述3</div>
             </div>
         </div>
-
-        <div class="arrow">
-            <a href="javascript:;" class="left"><</a>
-            <a href="javascript:;" class="right">></a>
+        <div class="carousel-controls">
+            <a href="javascript:;" class="left">‹</a>
+            <a href="javascript:;" class="right">›</a>
         </div>
-
-        <ul class="circle-list">
-            <li class="circle active" data-n="0"></li>
-            <li class="circle" data-n="1"></li>
-            <li class="circle" data-n="2"></li>
-            <li class="circle" data-n="3"></li>
-        </ul>
+        <div class="carousel-indicators">
+            <span data-index="0" class="active"></span>
+            <span data-index="1"></span>
+            <span data-index="2"></span>
+        </div>
     </div>
-    <div class="text-content">这里是图片下方的文字内容</div>
+    <div class="carousel-text-content">这里是图片下方的文字内容</div>
     
     <script>
-        const oLeft = document.querySelector(".left");
-        const oRight = document.querySelector(".right");
-        const oImgList = document.querySelector(".img-list");
+        const carouselImages = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-images > div');
+        const totalImages = images.length;
+        let currentIndex = 0;
 
-        const cloneFirstImg = oImgList.firstElementChild.cloneNode(true);
-        oImgList.appendChild(cloneFirstImg);
-
-        let index = 0;
-        let lock = true;
-
-        function handleRightBtn() {
-            if (!lock) return;
-            index++;
-            oImgList.style.left = index * -100 + "vw";
-            oImgList.style.transition = "0.5s ease";
-
-            if (index === 4) {
-                index = 0;
-                setTimeout(() => {
-                    oImgList.style.left = 0;
-                    oImgList.style.transition = "none";
-                }, 500);
-            }
-
-            setCircles();
-            lock = false;
-            setTimeout(() => {
-                lock = true;
-            }, 500);
-        }
-
-        oRight.addEventListener("click", handleRightBtn);
-
-        oLeft.addEventListener("click", () => {
-            if (!lock) return;
-            index--;
-            if (index === -1) {
-                oImgList.style.left = 4 * -100 + "vw";
-                oImgList.style.transition = "none";
-                index = 3;
-                setTimeout(() => {
-                    oImgList.style.left = index * -100 + "vw";
-                    oImgList.style.transition = "0.5s ease";
-                }, 0);
-            } else {
-                oImgList.style.left = index * -100 + "vw";
-                oImgList.style.transition = "0.5s ease";
-            }
-
-            setCircles();
-            lock = false;
-            setTimeout(() => {
-                lock = true;
-            }, 500);
-        });
-
-        const circles = document.querySelectorAll(".circle");
-
-        function setCircles() {
-            circles.forEach((circle, i) => {
-                circle.classList.toggle("active", i === index);
+        const updateCarousel = () => {
+            carouselImages.style.transform = `translateX(${-currentIndex * 100}%)`;
+            document.querySelectorAll('.carousel-indicators span').forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentIndex);
             });
-        }
+        };
 
-        const oCircle = document.querySelector(".circle-list");
-        oCircle.addEventListener("click", (e) => {
-            if (e.target.classList.contains("circle")) {
-                index = Number(e.target.getAttribute("data-n"));
-                setCircles();
-                oImgList.style.transition = "0.5s ease";
-                oImgList.style.left = index * -100 + "vw";
-            }
+        document.querySelector('.right').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateCarousel();
         });
 
-        let autoplay = setInterval(handleRightBtn, 2000);
-        const oWrap = document.querySelector("body");
+        document.querySelector('.left').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateCarousel();
+        });
 
-        oWrap.addEventListener("mouseenter", () => {
+        document.querySelectorAll('.carousel-indicators span').forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+
+        let autoplay = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateCarousel();
+        }, 3000);
+
+        document.querySelector('.carousel').addEventListener('mouseenter', () => {
             clearInterval(autoplay);
         });
 
-        oWrap.addEventListener("mouseleave", () => {
-            autoplay = setInterval(handleRightBtn, 2000);
+        document.querySelector('.carousel').addEventListener('mouseleave', () => {
+            autoplay = setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalImages;
+                updateCarousel();
+            }, 3000);
         });
     </script>
 </body>
